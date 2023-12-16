@@ -1,0 +1,22 @@
+app = "mov"
+primary_region = "sin"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 512
+
+[build]
+image = "zhaojun1998/zfile"
+
+[mount]
+source = "zfile_storage"
+destination = "/root/.zfile-v4"
